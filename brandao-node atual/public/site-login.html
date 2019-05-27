@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="stylesheets/css.css">
+</head>
+<body style="margin:0">
+    <nav class="nav">
+        <a class="meu-nav" href="main-site.html">MEU SITE</a>
+        <a class="cad-nav" href="site-cadastro.html">CADASTRO</a>
+        <a class="log-nav" href="site-login.html">LOGIN</a>
+    </nav>
+    <header class="head">
+       
+        <div class="dive">
+            <h1 class="h1">FAÇA SEU LOGIN</h1> <br>
+            <input type="text" placeholder="Nome de usuário ou e-mail" id="usuario" name="login"> <br>
+            <input type="password" placeholder="Digite sua senha" id="senha" name="senha"> <br>
+            <button class="bot-log" id="btn_entrar">Fazer login</button> 
+            <u class="esq-senha"><i><a href="site-esqueci-senha.html">Esqueci minha senha</a></i></u>
+        </div>
+
+        </header>
+        <footer class="fot">
+            <h3 class="h1"><i>Todos os direitos reservados</i></h3>
+        </footer>
+    
+</body>
+</html>
+
+<script>
+
+    verificarAutenticacao();
+
+    function verificarAutenticacao() {
+        if (sessionStorage.usuario_bandtec != undefined) {
+            window.location.href = 'site-usuario.html';
+        }
+    }
+
+    function entrar() {
+        aguardar();
+        var formulario = new URLSearchParams(new FormData(form_login));
+        fetch("/usuarios/entrar", {
+            method: "POST",
+            body: formulario
+        }).then(function (response) {
+            
+            if (response.ok) {
+
+                response.json().then(function (resposta) {
+
+                    sessionStorage.usuario_bandtec = resposta.nome;
+                    verificarAutenticacao();
+
+                });
+            } else {
+
+                console.log('Erro de login!');
+                finalizar_aguardar();
+            }
+        });
+
+        return false;
+    }
+
+    function aguardar() {
+        btn_entrar.disabled = true;
+        img_aguarde.style.display='block';
+        div_erro.style.display='none';
+    }
+
+    function finalizar_aguardar() {
+        btn_entrar.disabled = false;
+        img_aguarde.style.display='none';
+        div_erro.style.display='block';
+    }
+
+</script>
