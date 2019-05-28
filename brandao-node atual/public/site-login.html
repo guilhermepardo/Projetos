@@ -17,9 +17,11 @@
        
         <div class="dive">
             <h1 class="h1">FAÇA SEU LOGIN</h1> <br>
-            <input type="text" placeholder="Nome de usuário ou e-mail" id="usuario" name="login"> <br>
+          <form id="form_login" method="post" onsubmit="return entrar()"> 
+              <input type="text" placeholder="Nome de usuário ou e-mail" id="usuario" name="login"> <br>
             <input type="password" placeholder="Digite sua senha" id="senha" name="senha"> <br>
             <button class="bot-log" id="btn_entrar">Fazer login</button> 
+        </form> 
             <u class="esq-senha"><i><a href="site-esqueci-senha.html">Esqueci minha senha</a></i></u>
         </div>
 
@@ -37,7 +39,7 @@
 
     function verificarAutenticacao() {
         if (sessionStorage.usuario_bandtec != undefined) {
-            window.location.href = 'site-usuario.html';
+            window.location.href = 'grafico-chartjs.html';
         }
     }
 
