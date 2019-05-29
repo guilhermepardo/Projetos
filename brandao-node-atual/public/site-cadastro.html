@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="stylesheets/css.css">
+</head>
+<body style="margin:0">
+    <nav class="nav">
+        <a class="meu-nav" href="main-site.html">MEU SITE</a>
+        <a class="cad-nav" href="site-cadastro.html">CADASTRO</a>
+        <a class="log-nav" href="site-login.html">LOGIN</a>
+    </nav>
+    <header class="head">
+       
+
+        <div class="dive">
+            <h1 class="h1">FAÇA SEU CADASTRO!</h1> <br>
+
+            <form id="form_cadastro" method="post" onsubmit="return cadastrar()">
+                <input type="text" placeholder="Nome de usuário" name="nome"> <br>
+                <input type="text" placeholder="Digite seu e-mail" name="login"> <br>
+                <input type="password" placeholder="Digite sua senha" name="senha"> <br>
+                <button id="btn_entrar">CADASTRAR</button>
+            </form>
+
+            <div class="CAPTCHA">
+                <img src="aguarde2.gif" id="img_aguarde" style="display: none;" width="100px">
+            </div>
+
+            <div id="div_erro" style="background-color: sandybrown; color: maroon; display: none;">
+                Erro no cadastro
+            </div>
+        
+
+
+
+        </div>
+         
+        </header>
+
+        <footer class="fot">
+            <h3 class="h1"><i>Todos os direitos reservados</i></h3>
+        </footer>
+       
+    
+</body>
+</html>
+
+<script>
+
+function cadastrar() {
+        aguardar();
+        var formulario = new URLSearchParams(new FormData(form_cadastro));
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            body: formulario
+        }).then(function (response) {
+            
+            if (response.ok) {
+
+                window.location.href='site-login.html';
+
+            } else {
+
+                console.log('Erro de cadastro!');
+                response.text().then(function (resposta) {
+                    div_erro.innerHTML = resposta;
+                });
+                finalizar_aguardar();
+            }
+        });
+
+        return false;
+    }
+
+    function aguardar() {
+        btn_entrar.disabled = true;
+        img_aguarde.style.display='block';
+        div_erro.style.display='none';
+    }
+
+    function finalizar_aguardar() {
+        btn_entrar.disabled = false;
+        img_aguarde.style.display='none';
+        div_erro.style.display='block';
+    }
+</script>
