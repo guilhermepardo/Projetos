@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,16 +11,15 @@
     <nav class="nav">
         <a class="meu-nav" href="main-site.html">MEU SITE</a>
         <a class="cad-nav" href="site-cadastro.html">CADASTRO</a>
-        <a class="log-nav" href="site-login.html">LOGIN</a>
     </nav>
     <header class="head">
        
         <div class="dive">
             <h1 class="h1">FAÇA SEU LOGIN</h1> <br>
           <form id="form_login" method="post" onsubmit="return entrar()"> 
-              <input type="text" placeholder="Nome de usuário ou e-mail" id="usuario" name="login"> <br>
-            <input type="password" placeholder="Digite sua senha" id="senha" name="senha"> <br>
-            <button class="bot-log" id="btn_entrar">Fazer login</button> 
+              <input type="text"  name="login"> <br>
+            <input type="password"  name="senha"> <br>
+            <button id="btn_entrar" onclick="sla()">Fazer login</button> 
         </form> 
             <u class="esq-senha"><i><a href="site-esqueci-senha.html">Esqueci minha senha</a></i></u>
         </div>
@@ -39,7 +38,7 @@
 
     function verificarAutenticacao() {
         if (sessionStorage.usuario_bandtec != undefined) {
-            window.location.href = 'grafico-chartjs.html';
+            window.location.href = 'site-usuario.html';
         }
     }
 
@@ -47,7 +46,7 @@
         aguardar();
         var formulario = new URLSearchParams(new FormData(form_login));
         fetch("/usuarios/entrar", {
-            method: "POST",
+            method: "post",
             body: formulario
         }).then(function (response) {
             
@@ -71,14 +70,17 @@
 
     function aguardar() {
         btn_entrar.disabled = true;
-        img_aguarde.style.display='block';
-        div_erro.style.display='none';
+        
     }
 
     function finalizar_aguardar() {
         btn_entrar.disabled = false;
-        img_aguarde.style.display='none';
-        div_erro.style.display='block';
+        
+    }
+
+    function logoff() {
+        sessionStorage.removeItem('usuario_bandtec');
+        verificarAutenticacao();
     }
 
 </script>

@@ -10,9 +10,9 @@
 <body style="margin: 0;" class="bode">
 
     <nav class="nav">
-        <a class="meu-nav" href="main-site.html">MEU SITE</a>
-        <a class="cad-nav" href="site-cadastro.html">CADASTRO</a>
-        <a class="log-nav" href="site-login.html">LOGIN</a>
+        <a class="meu-nav" onclick="logoff2()" href="main-site.html">MEU SITE</a>
+        <a class="cad-nav" onclick="logoff1()" href="site-cadastro.html">CADASTRO</a>
+        <a class="log-nav" onclick="logoff()" href="site-login.html">CLIQUE AQUI PARA SAIR</a>
     </nav>
     <header class="head">
        
@@ -42,3 +42,12 @@
 
 </body>
 </html>
+
+<script>
+
+function logoff() {
+        sessionStorage.removeItem('usuario_bandtec');
+        verificarAutenticacao(); 
+    } 
+    
+</script>

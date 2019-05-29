@@ -6,23 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Página com exemplo de Autenticação (Login)</title>
+    <link rel="stylesheet" type="text/css" href="stylesheets/css.css">
 
 </head>
 
 <body>
+
+    <nav class="nav">
+        <a class="meu-nav" href="main-site.html">MEU SITE</a>
+        <a class="cad-nav" href="site-cadastro.html">CADASTRO</a> 
+        <a class="log-nav" href="site-login">LOGIN</a>
+    </nav>
+
+
+
+    <header class="head"> 
+
+    <div class="dive"> 
     <form id="form_login" method="post" onsubmit="return entrar()">
-        Usuário: <input type="text" name="login">
-        <br>
-        Senha: <input type="password" name="senha">
-        <br>
-        <button id="btn_entrar">Entrar</button>
+            <input type="text"  name="login"> <br>
+            <input type="password"  name="senha"> <br>
+            <button id="btn_entrar">Fazer login</button> 
     </form>
     
-    <img src="aguarde.gif" id="img_aguarde" style="display: none;">
+    <img src="aguarde.gif" id="img_aguarde" style="display: none;"> </div>
     
     <div id="div_erro" style="background-color: sandybrown; color: maroon; display: none;">
         Usuário e/ou senha inválidos!
-    </div>
+    </div> 
+</header>
 
 </body>
 
@@ -33,7 +45,7 @@
 
     function verificarAutenticacao() {
         if (sessionStorage.usuario_bandtec != undefined) {
-            window.location.href = 'grafico-chartjs.html';
+            window.location.href = 'site-usuario.html';
         }
     }
 

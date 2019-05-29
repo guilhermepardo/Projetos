@@ -142,4 +142,14 @@
     top: -48%;
   }
 
+  button[onclick="sla()" ] {
+    background-color: #007c85;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 4px;
+  }
  
