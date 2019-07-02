@@ -1,3 +1,2 @@
-# despacito-2
-despacito eh a melhor musica de todas
-heheheheehehehe
+# Projetos
+Neste repositório está meu progresso em Programação, mostrando o que estou aprendendo e como estou aplicando este aprendizado
