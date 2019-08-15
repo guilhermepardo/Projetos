@@ -16,7 +16,12 @@ public class ExercicioYoshi6 {
         Scanner leitor = new Scanner(System.in);
         System.out.println("Digite seu salário bruto: ");
         Double salarioBruto = leitor.nextDouble();
-        System.out.println("Digite o quanto você gasta: ");
+        System.out.println("Digite o quanto você gasta de condução: ");
+        Double conducao = 2 * 22 * leitor.nextDouble();
+        Double INSS = 0.10 * salarioBruto;
+        Double IR = 0.20 * salarioBruto;
+        Double salarioLiquido = salarioBruto - conducao - INSS - IR;
+        
         
         
     }
