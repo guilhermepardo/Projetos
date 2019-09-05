@@ -12,6 +12,7 @@ import java.awt.Color;
  * @author Aluno
  */
 public class TelaComponentes extends javax.swing.JFrame {
+    Integer cliques = 0;
 
     /**
      * Creates new form TelaComponentes
@@ -36,6 +37,8 @@ public class TelaComponentes extends javax.swing.JFrame {
         btProgressoCinquenta = new javax.swing.JButton();
         ckSolteiro = new javax.swing.JCheckBox();
         btSolteiro = new javax.swing.JButton();
+        lbCliques = new javax.swing.JLabel();
+        btClique = new javax.swing.JButton();
 
         jButton1.setText("jButton1");
 
@@ -71,6 +74,15 @@ public class TelaComponentes extends javax.swing.JFrame {
             }
         });
 
+        lbCliques.setText("Quantos cliques: 0");
+
+        btClique.setText("Clica aqui!");
+        btClique.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btCliqueActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -89,7 +101,11 @@ public class TelaComponentes extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(pbProgressoDiminuir)
                         .addGap(18, 18, 18)
-                        .addComponent(btProgressoCinquenta)))
+                        .addComponent(btProgressoCinquenta))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lbCliques)
+                        .addGap(32, 32, 32)
+                        .addComponent(btClique)))
                 .addContainerGap(49, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -106,7 +122,11 @@ public class TelaComponentes extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ckSolteiro)
                     .addComponent(btSolteiro))
-                .addContainerGap(225, Short.MAX_VALUE))
+                .addGap(24, 24, 24)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbCliques)
+                    .addComponent(btClique))
+                .addContainerGap(178, Short.MAX_VALUE))
         );
 
         pack();
@@ -131,6 +151,13 @@ public class TelaComponentes extends javax.swing.JFrame {
             ckSolteiro.setForeground(Color.RED);
         }
     }//GEN-LAST:event_btSolteiroActionPerformed
+
+    private void btCliqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCliqueActionPerformed
+    cliques++;
+    
+    lbCliques.setText("Quantos cliques: "+cliques);
+        
+    }//GEN-LAST:event_btCliqueActionPerformed
 
     /**
      * @param args the command line arguments
@@ -168,11 +195,13 @@ public class TelaComponentes extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btClique;
     private javax.swing.JButton btProgressoAumentar;
     private javax.swing.JButton btProgressoCinquenta;
     private javax.swing.JButton btSolteiro;
     private javax.swing.JCheckBox ckSolteiro;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel lbCliques;
     private javax.swing.JProgressBar pbProgresso;
     private javax.swing.JButton pbProgressoDiminuir;
     // End of variables declaration//GEN-END:variables
