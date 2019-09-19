@@ -5,7 +5,7 @@
  */
 package com.mycompany.projeto.swing;
 
-import java.util.Random;
+
 
 /**
  *
@@ -112,11 +112,8 @@ public class ExercicioSwing4 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAtualizarActionPerformed
-            Random barraProgresso = new Random();
             
-            Integer barra_um = barraProgresso.nextInt(100)+1;
-            Integer barra_dois = barraProgresso.nextInt(100)+1;
-            Integer barra_tres = barraProgresso.nextInt(100)+1;
+            
             
            
             
