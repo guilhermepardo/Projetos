@@ -235,8 +235,7 @@ public class TelaCarro extends javax.swing.JFrame {
     private void btAcelerar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAcelerar2ActionPerformed
         // TODO add your handling code here:
         carro2.acelerar();
-         lbStatus2.setText(carro2.getStatus());
-        pbVelocidade.setValue(carro2.getVelocidade().intValue());
+        lbVelocidade.setText(carro1.getVelocidadeFormatada());
     }//GEN-LAST:event_btAcelerar2ActionPerformed
 
     private void btFrear2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btFrear2ActionPerformed
